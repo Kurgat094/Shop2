@@ -1,0 +1,22 @@
+ {% extends 'base.html' %}
+
+ {% block title %}
+
+ {% endblock %}
+
+
+ {% block content %}
+<form action="">
+    <div class="container">
+        <div class="card">
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor% }
+            <h3>Enter OTP-code</h3>
+            <label for="">OTP-code</label>
+            <input type="password" placeholder="Enter OTP-code" name="user_otp">
+            <input type="submit" value="Verify" class="btn btn-success" style="color: azure;">
+        </div>
+    </div>
+</form>
+ {% endblock %}

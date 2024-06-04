@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block title  %}
+Service
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="post">
+    <div class="container">
+        <main>
+            <section class="services">
+                <h2>Our Services</h2>
+                <div class="service">
+                    <h3>Free Shipping</h3>
+                    <img src="{% static 'images/freeship.jpeg' %}" alt="Free Shipping">
+                    <p>Enjoy free shipping on all orders over $50. Our reliable shipping ensures your products arrive on time, every time.</p>
+                </div>
+                <div class="service">
+                    <h3>24/7 Customer Support</h3>
+                    <img src="{% static 'images/24customer.jpeg' %}" alt="Customer Support">
+                    <p>Our dedicated customer support team is available 24/7 to assist you with any queries or issues you may have.</p>
+                </div>
+                <div class="service">
+                    <h3>Easy Returns</h3>
+                    <img src="{% static 'images/easyreturns.png' %}" alt="Easy Returns">
+                    <p>If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund. No questions asked.</p>
+                </div>
+                <div class="service">
+                    <h3>Secure Payment</h3>
+                    <img src="{% static 'images/securedpayment.jpeg' %}" alt="Secure Payment">
+                    <p>We offer secure payment options to ensure your personal and financial information is protected.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Shop Haven. All rights reserved.</p>
+        </footer>
+    </div>
+</form>
+{% endblock %}

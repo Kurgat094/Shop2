@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="post">
+    <div class="container">
+        <div class="card">
+            {% csrf_token %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            <h3>Sign in</h3>
+            <input type="text" placeholder="Enter username" name="username" style="margin: 10px 0;">
+            <input type="password" placeholder="Enter password" name="password" style="margin: 10px 0;">
+            <div class="center" style="display: flex;align-items: center; justify-content: space-between;">
+             <button type="submit" class="btn btn-success">Login</button>
+             <a href="" >Forgot password?</a>
+            </div>
+             <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+        </div>
+    </div>
+</form>
+{% endblock %}

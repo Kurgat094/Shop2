@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+<form action="">
+    <div class="container">
+        <main>
+            <div class="box">
+                <h3>Uploads of products</h3>
+                {% csrf_token %}
+                {{form.name.label}} <br>
+                {{form.name}} <br>
+                {{form.description.label}} <br>
+                {{form.description}} <br>
+                {{form.price.label}} <br>
+                {{form.price}} <br>
+                {{form.image.label}} <br>
+                {{form.image}} <br>
+                <input type="submit" value="SUBMIT" class="btn btn-success">
+            </div>
+        </main>
+    </div>
+</form>
+{% endblock %}
