@@ -23,3 +23,12 @@ class Otp(models.Model):
     def is_valid(self):
         now=datetime.datetime.now()
         return(now-self.created_at).total_seconds()<300
+
+class Message(models.Model):
+    name=models.CharField(max_length=200)
+    email=models.EmailField()
+    message=models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.name
+    

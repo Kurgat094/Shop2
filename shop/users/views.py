@@ -4,8 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
+from django.core.mail import send_mail
 from .models import Otp
 from django.core.mail import send_mail
+import logging
 # Create your views here.
 
 def home(request):
@@ -15,19 +17,19 @@ def home(request):
 def signin(request):
     if request.method=="POST":
        form= AuthenticationForm(request,data=request.POST)
-       if form.is_valid:
+       if form.is_valid():
            username=form.cleaned_data.get('username')
            password=form.cleaned_data.get('password')
            user=authenticate(username=username,password=password)
            if user is not None:
-               login(request,user)
-               messages.success(request,f"You have loged in successfully")
-               return render(request,'shop.html')
+                login(request,user)
+                messages.success(request,f"You have loged in successfully")
+                return render(request,'shop.html')
     else :
         form=AuthenticationForm()
     return render(request,'login.html',{form :'form'})
 
-
+logger = logging.getLogger(__name__)
 def signup(request):
     form=CreateUser
     if request.method=='POST':
@@ -36,12 +38,40 @@ def signup(request):
             user=form.save()
             group=Group.objects.get(name='users')
             user.groups.add(group)
-            return redirect('signin')
+            # Send the email
+            subject = "Successful Login Notification"
+            message = f"""Hello,\n\nYou have successfully logged in to your account.
+                         'Your Otp is ',
+                         'Otp is :{otp},"""
+            from_email = "tobiaskipkogei@gmail.com"  
+            recipient_list = [user.email]
+            try:
+                send_mail(subject, message, from_email, recipient_list)
+            except Exception as e:
+                logger.error(f"Error sending email: {e}")
+            return redirect('otp')
     context={
         "form":form
     }
     return render(request,'register.html',context)
-    
+
+def send_otp_email(username,otp):
+    send_mail(
+        'Your Otp is ',
+        f'Otp is :{otp}',
+        
+    )
+
+def otp(request):
+    return render(request,'otp.html')
+
+def forgotpassword(request):
+    # if request.method=='POST':
+    #     print
+    return render(request,'forgotpassword.html')
+
+def resetpassword(request):
+    return render(request,'resetpassword.html')
 
 def blogs(request):
     return render(request,'blogs.html')
@@ -52,11 +82,7 @@ def services(request):
 def contact(request):
     return render(request,'contact.html')
     
-def otp(request):
-    return render(request,'otp.html')
 
-def forgotpassword(request):
-    return render(request,'forgotpasssword.html')
 
 def upload_file(request):
     form=ProductForm(request.POST)
@@ -69,9 +95,7 @@ def upload_file(request):
             return render(request,'admin.html')
     return render(request,'admin.html',{"form":form})
 
-def send_otp_email(user,otp):
-    send_mail(
-        'Your Otp is ',
-        f'Otp is :{otp}',
-        
-    )
+def shop(request):
+    # if request.method=='POST':
+    #     print
+    return render(request,'shop.html')

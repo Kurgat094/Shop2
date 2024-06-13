@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bc$o$5adx%9i5-ur+0ft)0(b#qb%qbs7=p@$q$qep51x%!(cwn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://shop2-jnwv.onrender.com','shop2-jnwv.onrender.com']
+ALLOWED_HOSTS = ['https://shop2-jnwv.onrender.com','shop2-jnwv.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -125,3 +125,14 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_PORT=587
+EMAIL_HOST_USER="tobiaskipkogei@gmail.com"
+EMAIL_HOST_PASSWORD="mehvuoqhwudsdmxz"
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL=False
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

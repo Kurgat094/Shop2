@@ -18,7 +18,7 @@ Login
             <input type="password" placeholder="Enter password" name="password" style="margin: 10px 0;">
             <div class="center" style="display: flex;align-items: center; justify-content: space-between;">
              <button type="submit" class="btn btn-success">Login</button>
-             <a href="" >Forgot password?</a>
+             <a href="{% url 'forgotpassword' %}" >Forgot password?</a>
             </div>
              <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
         </div>

@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from .models import Product,Otp
+from .models import Product,Otp,Message
 
 class CreateUser(UserCreationForm):
     email=forms.EmailField()
@@ -17,5 +17,10 @@ class ProductForm(forms.ModelForm):
 
 class OtpForm(forms.ModelForm):
    class Meta:
-      modele=Otp
+      model=Otp
       fields=['otp']
+
+class Message(forms.ModelForm):
+   class Meta:
+      model=Message
+      fields=['name','email','message']
