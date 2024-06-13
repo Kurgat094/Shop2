@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<img src="{% static 'images/call.png' %}" alt="">
 Contact
 {% endblock %}
 
@@ -15,14 +14,20 @@ Contact
         <main id="content">
             <section id="contact-info">
                 <h2>Our Contact Information</h2>
-                <p><strong>Address:</strong> 1234 Main St, Anytown, USA</p>
+                <p><strong>Address:</strong> Rafiki,Nakuru-Kabarnet road, Nakuru, Kenya</p>
                 <p><strong>Phone:</strong>0796108292</p>
                 <p><strong>Email:</strong> tobiaskipkogei@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://wa.me/+2547260533339" class="icon-link"><img src="{% static 'images/whatsapp.jpeg' %}"alt="Whatsapp" class="icon" style="border-radius: 50%; width: 50px;"></a>
+                    <a href="https://twitter.com/@Tobby094" class="icon-link"><img src="{% static 'images/twitter.png' %}" alt="Twitter" class="icon" style="border-radius: 50%; width: 50px;"></a>
+                    <a href="https://www.instagram.com/t.o.b.ykurgat'" class="icon-link"><img src="{% static 'images/instagram.jpeg' %}" alt="Instagram" class="icon" style="border-radius: 50%; width: 50px;"></a>
+                </div>
+                
             </section>
             
             <section id="contact-form">
                 <h2>Send Us a Message</h2>
-                <form action=" method="POST">
+                <form action=""method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -41,11 +46,6 @@ Contact
         </main>
         
         <footer id="footer">
-            <div class="social-links">
-                <a href="{% url 'home' %}"><img src="{% static 'images/whatsapp.jpeg' %}" alt="Whatsapp"></a>
-                <a href="{% url 'blogs' %}"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>  
-                <a href="{% url 'services' %}"><img src="{% static 'images/instagram.jpeg' %}" alt="Instagram"></a>
-            </div>
             <p>&copy; 2024 Your Company. All rights reserved.</p>
         </footer>
     </div>

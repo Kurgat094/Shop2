@@ -41,6 +41,23 @@ nav ul{
     float: right;
 }
 
+.social-links {
+    display: flex;
+    gap: 10px; /* Space between icons */
+}
+.social-links a img{
+    border-radius: 50%;
+}
+.icon-link {
+    display: inline-block;
+}
+
+.icon {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+}
+
+
 .navbar-nav mr-auto{
     background-color: #8e74eb;
 }
