@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">
@@ -17,31 +17,25 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav" style="background-color: blue;">
-            <ul class="navbar-nav" class="dropdown">
-                <li class="nav-item active" >
-                    <a style="text-shadow: 10px; color: black; outline: none;" class="nav-link" href="{% url 'home' %}">Home</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a style="text-shadow: 10px; color: black; outline: none;"class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+                    <a class="nav-link" href="{% url 'blogs' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a style="text-shadow: 10px; color: black; outline: none;"class="nav-link" href="{% url 'services' %}">Services</a>
+                    <a class="nav-link" href="{% url 'services' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a style="text-shadow: 10px; color: black; outline: none;"class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
-    
-    <div class="container mt-5">
-        {% block content %}
-        {% endblock %}
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlB0Z4z3Lp61hO0g5MfsMfU8GVXwAc+rgn0EGx1C9pTz5n43KfFAUwvW8gP" crossorigin="anonymous"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
