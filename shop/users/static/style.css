@@ -388,3 +388,17 @@ footer .social-links a img{
         width: 100%;
     }
 }
+.product-card {
+    margin-bottom: 20px;
+}
+.product-card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+.card-title {
+    flex-grow: 1;
+}

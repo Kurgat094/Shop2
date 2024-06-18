@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
-
+Blogs
 {% endblock %}
 
 {% block content %}
@@ -10,7 +11,7 @@
             <article>
                 <h2>Top Online Deals for Summer Fashion 2024</h2>
                 <p class="date">Posted on May 26, 2024 by Emma Smith</p>
-                <img src="summer-fashion.jpg" alt="Summer Fashion" class="featured-image">
+                <img src="{% static 'images/summer_fashion.jpeg' %}" alt="Summer Fashion" class="featured-image">
                 <p>Summer is just around the corner, and it's the perfect time to refresh your wardrobe with the latest fashion trends. Here are some of the best online deals you don't want to miss!</p>
                 <h3>1. Trendy Summer Dresses</h3>
                 <p>From floral prints to breezy maxi dresses, summer dresses are a must-have. Check out these great deals:</p>

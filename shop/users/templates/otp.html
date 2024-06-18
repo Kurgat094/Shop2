@@ -6,16 +6,24 @@
 
 
  {% block content %}
-<form action="">
+<form action="" method="post">
     <div class="container">
         <div class="card">
+            {% if form.errors %} 
+            {% for key,error in form.errors.items %}
+                 <p style="color: red;">{{error}}</p>
+            {% endfor %}
+            {% endif %}
             {% for message in messages %}
             <p>{{message}}</p>
-            {% endfor% }
+            {% endfor %}
+            {% csrf_token %}
             <h3>Enter OTP-code</h3>
-            <label for="">OTP-code</label>
-            <input type="password" placeholder="Enter OTP-code" name="user_otp">
-            <input type="submit" value="Verify" class="btn btn-success" style="color: azure;">
+            {{form.otp}}
+            
+            
+            <div class="center" style="display: flex;align-items: center; justify-content: space-between;">
+                <button type="submit" class="btn btn-success">Verify</button>
         </div>
     </div>
 </form>

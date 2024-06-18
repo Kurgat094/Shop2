@@ -13,7 +13,7 @@ Register
             {% for key,error in form.errors.items %}
                  <p style="color: red;">{{error}}</p>
             {% endfor %}
-        {% endif %}
+            {% endif %}
             <h3>Register</h3>
             {% csrf_token %}
             {{form.username.label}}

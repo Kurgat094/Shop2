@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 from django.core.mail import send_mail
-from .models import Otp
+from .models import Otp,Product
 from django.core.mail import send_mail
 import logging
 # Create your views here.
@@ -58,12 +58,19 @@ def signup(request):
 def send_otp_email(username,otp):
     send_mail(
         'Your Otp is ',
-        f'Otp is :{otp}',
+        'Otp is :{otp}'
         
     )
 
 def otp(request):
-    return render(request,'otp.html')
+    if request.method=="POST":
+        form=OtpForm(request.POST)
+        if form.is_valid():
+            otp=form.cleaned_data['otp']
+            return redirect('signin')
+    else:
+        form=OtpForm()
+    return render(request,'otp.html',{'form':form})
 
 def forgotpassword(request):
     # if request.method=='POST':
@@ -96,6 +103,5 @@ def upload_file(request):
     return render(request,'admin.html',{"form":form})
 
 def shop(request):
-    # if request.method=='POST':
-    #     print
-    return render(request,'shop.html')
+    products=Product.objects.all()
+    return render(request,'shop.html',{'products':products})
