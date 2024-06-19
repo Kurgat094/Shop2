@@ -8,7 +8,7 @@ Login
 {% block content %}
 <form action="" method="post">
     <div class="container">
-        <div class="card">
+        <div class="cards">
             {% csrf_token %}
             {% for message in messages %}
             <p>{{message}}</p>

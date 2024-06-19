@@ -8,7 +8,7 @@
  {% block content %}
 <form action="" method="post">
     <div class="container">
-        <div class="card">
+        <div class="cards">
             {% if form.errors %} 
             {% for key,error in form.errors.items %}
                  <p style="color: red;">{{error}}</p>
@@ -20,8 +20,6 @@
             {% csrf_token %}
             <h3>Enter OTP-code</h3>
             {{form.otp}}
-            
-            
             <div class="center" style="display: flex;align-items: center; justify-content: space-between;">
                 <button type="submit" class="btn btn-success">Verify</button>
         </div>
