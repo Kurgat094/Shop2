@@ -38,31 +38,27 @@ def signup(request):
             user=form.save()
             group=Group.objects.get(name='users')
             user.groups.add(group)
+            otp_instance = Otp.objects.create(user=user)
+            otp_instance.generate_otp()
             # Send the email
             subject = "Successful Login Notification"
             message = f"""Hello,\n\nYou have successfully logged in to your account.
                          'Your Otp is ',
-                         'Otp is :{otp},"""
+                         'Otp is :{otp_instance.otp},"""
             from_email = "tobiaskipkogei@gmail.com"  
             recipient_list = [user.email]
             try:
                 send_mail(subject, message, from_email, recipient_list)
             except Exception as e:
                 logger.error(f"Error sending email: {e}")
-            return redirect('otp')
+            return redirect('Otp')
     context={
         "form":form
     }
     return render(request,'register.html',context)
 
-def send_otp_email(username,otp):
-    send_mail(
-        'Your Otp is ',
-        'Otp is :{otp}'
-        
-    )
 
-def otp(request):
+def Otp(request):
     if request.method=="POST":
         form=OtpForm(request.POST)
         if form.is_valid():

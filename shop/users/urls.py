@@ -10,7 +10,7 @@ urlpatterns = [
     path('contact',contact,name="contact"),
     path('upload',upload_file,name="upload_file"),
     path('forgotpassword',forgotpassword,name="forgotpassword"),
-    path('otp',otp,name='otp'),
+    path('Otp',Otp,name='Otp'),
     path('resetpassword',resetpassword,name="resetpassword"),
     path('shop',shop,name="shop"),
 ]
