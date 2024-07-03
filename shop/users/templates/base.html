@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-shopping-carts/1.0.0/bootstrap-shopping-carts.min.css" integrity="sha512-Dzi0zz9zCe2olZNhq+wnzGjO5ILOv8f/yD6j8srW+XGnnv9dUN04eEoIdVHxQqiy8uBn21niIWQpiCzYJEH3yg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .navbar-nav .nav-item .nav-link {
             text-shadow: 1px 1px 2px black;
@@ -54,7 +55,15 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">Contact</a>
+                </li> 
+                
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cart' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none;">My Cart</a>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="{% url 'signout' %}" style="text-shadow: 1px 1px 2px black; color: black; outline: none; float: right;">Log out</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -66,3 +75,5 @@
     <script src="{% static 'java.js'}"></script>
 </body>
 </html>
+Otp.objects.create(user=user, otp=otp)Otp.objects.create(user=user, otp=otp)
+

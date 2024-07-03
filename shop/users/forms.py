@@ -18,7 +18,7 @@ class ProductForm(forms.ModelForm):
 class OtpForm(forms.ModelForm):
    class Meta:
       model=Otp
-      fields=['otp']
+      fields=['otp','is_verified']
 
 class Message(forms.ModelForm):
    class Meta:

@@ -12,17 +12,13 @@ class Product(models.Model):
         return self.name
     
 class Otp(models.Model): 
-    User=models.OneToOneField(User,on_delete=models.CASCADE)
+    user=models.CharField(max_length=10,blank=True,null=True)
     otp=models.CharField(max_length=6)
+    is_verified=models.IntegerField(default=0)
     created_at=models.DateTimeField(auto_now_add=True)
-    def generate_otp(self):
-        self.otp=''.join(random.choice(string.digits,k=6))
-        self.created_at=datetime.datetime.now()
-        self.save()
+    # def __str__(self):
+    #     return self.is_verified
     
-    def is_valid(self):
-        now=datetime.datetime.now()
-        return(now-self.created_at).total_seconds()<300
 
 class Message(models.Model):
     name=models.CharField(max_length=200)

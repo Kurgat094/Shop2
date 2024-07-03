@@ -1,11 +1,12 @@
+
 h1{
     color: red;
 }
 .cards{
-    top: 300px;
+    top: 60%;
     left: 50%;
+    margin-top: 20px;
     position: absolute;
-    margin-top: 100vh;
     transform: translate(-50%,-50%);
     box-shadow: hsl(0, 90%, 49%) 0 0 16px;
     width: 400px;
