@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Register
@@ -26,6 +27,8 @@ Register
             {{form.password2}}
             <button type="submit" class="btn btn-success">Sign Up</button>
             <p>Already have an account? <a href="{% url 'signin' %}">Login</a></p>
+            <h4>OR</h4>
+            <h6 class="btn btn-success"  style=" background-color: white;"><img style="width:50px; height: auto; padding-right: 10px;" src="{% static 'images/google.png' %}" alt=""><a style="color:rgb(119, 28, 232); text-decoration: none; " href="#">Sign in with  google</a></h6>
         </div>
     </div>
 </form>

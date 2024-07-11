@@ -85,11 +85,16 @@ def Otps(request):
     return render(request,'otp.html')
 
 def forgotpassword(request):
-    # if request.method=='POST':
-    #     print
     return render(request,'forgotpassword.html')
 
 def resetpassword(request):
+    if request.method=="POST":
+        new_password=request.POST['newpassword']
+        confirm=request.POST['confirm']
+        if new_password==confirm:
+            
+            return redirect('signin')
+
     return render(request,'resetpassword.html')
 
 
